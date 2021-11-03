@@ -80,6 +80,11 @@ window.addEventListener('load', function() {
 }, false);
 
 function GalleryImage() {
+	String:location()
+	String:description()
+	String:date()
+	String:img()
+	
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
 	//2. description of photo
