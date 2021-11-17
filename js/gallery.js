@@ -36,8 +36,10 @@ function swapPhoto() {
   if(mCurrentIndex >= mImages.length){
     mCurrentIndex=0;
   }else if(mCurrentIndex<0){
-  mCurrentIndex=mImages[mImages.lnth-1];
+  mCurrentIndex=mImages[mImages.length-1];
   }
+  mLastFrameTime=0;
+  mCurrentIndex++;
 
   document.GetElementById('photo')
   document.getElementById('photo')src="mImages"[mCurrentIndex].imgPath;
@@ -107,4 +109,8 @@ function GalleryImage() {
 	this.description;
 	this.date;
 	this.img;
+}
+
+function iterateJSON{
+  
 }
