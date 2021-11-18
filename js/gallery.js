@@ -36,13 +36,10 @@ function swapPhoto() {
   if(mCurrentIndex >= mImages.length){
     mCurrentIndex=0;
   }else if(mCurrentIndex<0){
-  mCurrentIndex=mImages[mImages.length-1];
+  mCurrentIndex=mImages.length-1;
   }
-  mLastFrameTime=0;
-  mCurrentIndex++;
 
-  document.GetElementById('photo')
-  document.getElementById('photo')src="mImages"[mCurrentIndex].imgPath;
+  document.getElementById('photo').src= mImages[mCurrentIndex].img;
   var location=document.GetElementsByClassName('location')[0].innerHTML="Location:"+ mImages[mCurrentIndex].location;
   var description=document.GetElementsByClassName('description')[0].innerHTML="Description:"+ mImages[mCurrentIndex].description;
   var date=document.GetElementsByClassName('date')[0].innerHTML="Date:"+ mImages[mCurrentIndex].date;
@@ -50,6 +47,9 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded
 	//from the JSON string
+
+	mLastFrameTime=0;
+	mCurrentIndex++;
 	console.log('swap photo');
 }
 
@@ -71,7 +71,7 @@ function fetchJson(){
     }
 });
 
-request.open("GET", "../images.json");
+request.open("GET", mUrl, true);
 request.send();
 }
 // Array holding GalleryImage objects (see below).
@@ -82,7 +82,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
+var mUrl = '../images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
