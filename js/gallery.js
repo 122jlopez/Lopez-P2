@@ -96,7 +96,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 
 $(document).ready( function() {
 fetchJson(){
-  
+
 }
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
@@ -125,5 +125,4 @@ function iterateJson(mJson){
     mImages[x].date = mJson.images[x].date;
     mImages[x].img= mJson.images[x].imgPath;
   }
-
 }
