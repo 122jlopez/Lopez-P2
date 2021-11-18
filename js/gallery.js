@@ -60,20 +60,17 @@ var mCurrentIndex = 0;
 var mRequest = new XMLHttpRequest();
 
 function fetchJson(){
-  mRequest.addEventListener("readystatechange", () => {
-    console.log(mRequest, mRequest.readyState);
-    if (request.readyState === 4 && mRequest.status === 200) {
+  mRequest.onreadystatechange = function() {
+    console.log("on ready state change");
+    if(this.readyState == 4 && this.status == 200) {
       mJson = JSON.parse(mRequest.responseText);
-      console.log(mJson);
-      iteraeJSON(mJson);
-    } else if (mRequest.readyState === 4) {
-      console.log("could not fetch the data");
+      iterateJSON(mJson);
     }
-});
-
-request.open("GET", mUrl, true);
-request.send();
+  }
+  mRequest.open("GET", mUrl, true);
+  mRequest.send();
 }
+
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
@@ -82,7 +79,7 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = '../images.json';
+var mUrl = 'images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -95,9 +92,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-fetchJson(){
-
-}
+fetchJson()
 	// This initially hides the photos' metadata information
 	// $('.details').eq(0).hide();
 
@@ -119,7 +114,7 @@ function GalleryImage() {
 function iterateJson(mJson){
   for(let x = 0; x < mJson.images.length; x++)
   {
-    mImages[x] = new gallerImage();
+    mImages[x] = new GalleryImage();
     mImages[x].location = mJson.images[x].imgLocation;
     mImages[x].description = mJson.images[x].description;
     mImages[x].date = mJson.images[x].date;
