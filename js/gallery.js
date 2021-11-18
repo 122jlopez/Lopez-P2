@@ -59,18 +59,21 @@ var mCurrentIndex = 0;
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
 
-mRequest.addEventListener("readystatechange", () => {
-  console.log(mRequest, mRequest.readyState);
-  if (request.readyState === 4 && mRequest.status === 200) {
-    const data = JSON.parse(mRequest.responseText);
-    console.log(data);
-  } else if (mRequest.readyState === 4) {
-    console.log("could not fetch the data");
-  }
+function fetchJson(){
+  mRequest.addEventListener("readystatechange", () => {
+    console.log(mRequest, mRequest.readyState);
+    if (request.readyState === 4 && mRequest.status === 200) {
+      mJson = JSON.parse(mRequest.responseText);
+      console.log(mJson);
+      iteraeJSON(mJson);
+    } else if (mRequest.readyState === 4) {
+      console.log("could not fetch the data");
+    }
 });
 
 request.open("GET", "../images.json");
 request.send();
+}
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
@@ -92,9 +95,11 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-
+fetchJson(){
+  
+}
 	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	// $('.details').eq(0).hide();
 
 });
 
@@ -111,6 +116,14 @@ function GalleryImage() {
 	this.img;
 }
 
-function iterateJSON{
-  
+function iterateJson(mJson){
+  for(let x = 0; x < mJson.images.length; x++)
+  {
+    mImages[x] = new gallerImage();
+    mImages[x].location = mJson.images[x].imgLocation;
+    mImages[x].description = mJson.images[x].description;
+    mImages[x].date = mJson.images[x].date;
+    mImages[x].img= mJson.images[x].imgPath;
+  }
+
 }
