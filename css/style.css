@@ -12,9 +12,9 @@ body {
 	margin-right: auto;
 	background-color: white;
 	border-radius: 2px;
-}	
+}
 
-#slideShow {	
+#slideShow {
 	position: relative;
 }
 
@@ -24,13 +24,15 @@ body {
 	margin: 0 auto;
 }
 
-.moreIndicator {
+.moreIndicator rot90{
 	height: 50px;
 	width: 50px;
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
 	top: 0px;
+	float: center;
+	bottom-aligned:auto;
 }
 
 .thumbnail {
