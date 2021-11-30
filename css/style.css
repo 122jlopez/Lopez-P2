@@ -24,15 +24,21 @@ body {
 	margin: 0 auto;
 }
 
-.moreIndicator rot90{
+.moreIndicator {
 	height: 50px;
 	width: 50px;
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
 	top: 0px;
-	float: center;
-	bottom-aligned:auto;
+}
+
+#slideShow{
+    webkit-transform: rotate(90deg); /* Safari and Chrome */
+    moz-transform: rotate(90deg);   /* Firefox */
+    ms-transform: rotate(90deg);   /* IE 9 */
+    o-transform: rotate(90deg);   /* Opera */
+    transform: rotate(90deg);
 }
 
 .thumbnail {
