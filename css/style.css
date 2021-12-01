@@ -75,7 +75,7 @@ Make it animate nicely. You'll need CSS3 for this*/
 	moz-transform: rotate(90deg);   /* Firefox */
 	ms-transform: rotate(90deg);   /* IE 9 */
 	o-transform: rotate(90deg);   /* Opera */
-	transform: rotate(90 deg);
+	transform: rotate(90deg);
 }
 
 /*Add CSS styles to rotate the element 180deg
